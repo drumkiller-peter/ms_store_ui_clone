@@ -30,3 +30,11 @@ To run this project, you will need to have Flutter and MS Visual Studio set up o
   ```
 - package link: **https://pub.dev/packages/bitsdojo_window**
 - Youtube explanation: **https://www.youtube.com/watch?v=bee2AHQpGK4**
+
+## Screenshots
+
+https://user-images.githubusercontent.com/67107185/233819512-ff0d2535-fbcd-429e-81f6-3476bbb5448a.mp4
+
+![Screenshot (120)](https://user-images.githubusercontent.com/67107185/233819523-3eed4996-40fb-4e04-ac44-af9846bca2c6.png)
+![Screenshot (121)](https://user-images.githubusercontent.com/67107185/233819524-6ee6846c-c964-4fa7-bf4d-36d18933ba06.png)
+
