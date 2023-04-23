@@ -50,79 +50,90 @@ class TopFreeApps extends StatelessWidget {
           imagePath: "assets/app_logos/netflix.png"),
     ];
     return LayoutBuilder(
-      builder: (c, d) => ConstrainedBox(
-        constraints: BoxConstraints(maxWidth: d.maxWidth),
-        child: GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisSpacing: 20,
-              mainAxisExtent: 100,
-              mainAxisSpacing: 20,
-              crossAxisCount: d.maxWidth > 1000
+      builder: (c, d) => ScrollConfiguration(
+        behavior: const ScrollBehavior()
+          ..copyWith(
+            scrollbars: false,
+            overscroll: false,
+          ),
+        child: ConstrainedBox(
+          constraints: BoxConstraints(maxWidth: d.maxWidth),
+          child: GridView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisSpacing: 20,
+                mainAxisExtent: 100,
+                mainAxisSpacing: 20,
+                crossAxisCount: d.maxWidth > 1000
+                    ? 3
+                    : d.maxWidth < 660
+                        ? 1
+                        : 2,
+              ),
+              itemCount: d.maxWidth < 650
                   ? 3
-                  : d.maxWidth < 650
-                      ? 1
-                      : 2,
-            ),
-            itemCount: topFreeAppsList.length,
-            itemBuilder: (context, index) {
-              return Container(
-                decoration: BoxDecoration(
-                  color: Colors.grey,
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                padding:
-                    const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Image.asset(
-                      topFreeAppsList[index].imagePath,
-                      // height: 200,
-                      width: 100,
-                      // fit: BoxFit.fill,
-                    ),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        AppText(topFreeAppsList[index].appName),
-                        AppText(
-                          topFreeAppsList[index].category,
-                          style: textTheme.bodySmall,
-                        ),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        Row(
-                          children: [
-                            RatingBar(
-                              rating: topFreeAppsList[index].rating,
-                              ratedIconColor: Colors.white.withOpacity(0.8),
-                              icon: Icons.star_purple500_outlined,
-                              iconSize: 16,
-                            ),
-                            const SizedBox(
-                              width: 8,
-                            ),
-                            AppText(
-                              topFreeAppsList[index].downloadCount,
-                              style:
-                                  textTheme.bodySmall?.copyWith(fontSize: 13),
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                    const Spacer(),
-                    Button(
-                        child: AppText(index.isEven ? "Installed" : "Free"),
-                        onPressed: () {}),
-                  ],
-                ),
-              );
-            }),
+                  : d.maxWidth > 650 && d.maxWidth < 1000
+                      ? 4
+                      : topFreeAppsList.length,
+              itemBuilder: (context, index) {
+                return Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Image.asset(
+                        topFreeAppsList[index].imagePath,
+                        width: 100,
+                        // fit: BoxFit.fill,
+                      ),
+                      const SizedBox(
+                        width: 12,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          AppText(topFreeAppsList[index].appName),
+                          AppText(
+                            topFreeAppsList[index].category,
+                            style: textTheme.bodySmall,
+                          ),
+                          const SizedBox(
+                            height: 8,
+                          ),
+                          Row(
+                            children: [
+                              RatingBar(
+                                rating: topFreeAppsList[index].rating,
+                                ratedIconColor: Colors.white.withOpacity(0.8),
+                                icon: Icons.star_purple500_outlined,
+                                iconSize: 16,
+                              ),
+                              const SizedBox(
+                                width: 8,
+                              ),
+                              AppText(
+                                topFreeAppsList[index].downloadCount,
+                                style:
+                                    textTheme.bodySmall?.copyWith(fontSize: 13),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                      const Spacer(),
+                      Button(
+                          child: AppText(index.isEven ? "Installed" : "Free"),
+                          onPressed: () {}),
+                    ],
+                  ),
+                );
+              }),
+        ),
       ),
     );
   }

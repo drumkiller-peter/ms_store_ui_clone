@@ -5,10 +5,10 @@ import 'package:ms_store_ui_clone/screens/home.dart';
 void main() {
   runApp(const MyApp());
   doWhenWindowReady(() {
-    const initialSize = Size(800, 600);
+    const initialSize = Size(600, 600);
     appWindow.minSize = initialSize;
     appWindow.size = initialSize;
-    // appWindow.title = "MS Store UI Clone";
+    appWindow.title = "MS Store UI Clone";
     appWindow.alignment = Alignment.center;
     appWindow.show();
   });
