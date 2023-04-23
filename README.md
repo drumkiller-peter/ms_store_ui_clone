@@ -1,5 +1,9 @@
 # Microsoft Store UI Clone Project with Flutter
 
+## Motivation
+
+I have been wondering on how to remove the classic maximize, minimize and close icon provided by default by flutter. So, mainly to achieve this, I started this project.
+
 ## Project Overview
 
 **The project includes:**
