@@ -14,7 +14,7 @@ class AppConstants {
     colors: [
       Colors.black,
       Colors.transparent,
-      Colors.black,
+      Colors.transparent,
       Colors.transparent,
       Colors.black.withOpacity(0.9),
     ],
