@@ -12,9 +12,9 @@ class AppConstants {
   );
   static Gradient heroImageBgGradient = LinearGradient(
     colors: [
-      Colors.grey[210],
+      Colors.black,
       Colors.transparent,
-      Colors.transparent,
+      Colors.black,
       Colors.transparent,
       Colors.black.withOpacity(0.9),
     ],

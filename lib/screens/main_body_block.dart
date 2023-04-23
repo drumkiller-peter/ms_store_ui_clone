@@ -2,6 +2,7 @@ import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/material.dart' hide Colors;
 import 'package:get/get.dart';
 import 'package:ms_store_ui_clone/controller/hero_controller.dart';
+import 'package:ms_store_ui_clone/screens/featured_free_games/featured_free_games_block.dart';
 import 'package:ms_store_ui_clone/screens/main_body_widgets/hero_image.dart';
 import 'package:ms_store_ui_clone/screens/main_body_widgets/hero_image_details.dart';
 import 'package:ms_store_ui_clone/screens/main_body_widgets/hero_tile_widget.dart';
@@ -104,13 +105,17 @@ class MainBodyBlock extends StatelessWidget {
                         ],
                       )),
                   SizedBox(
-                    height: constraints.maxHeight * 0.4,
+                    height: maxWidth < 680 ? 360 : 248,
                     child: Padding(
                       padding: const EdgeInsets.only(right: 24),
                       child: TopFreeApps(
                         value: constraints.maxWidth,
                       ),
                     ),
+                  ),
+                  FeaturedFreeGamesBlock(
+                    height: constraints.maxHeight,
+                    width: constraints.maxWidth,
                   ),
                 ],
               ),
